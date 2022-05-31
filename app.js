@@ -104,6 +104,8 @@ generateHTML = () => {
     
   })
 
+
+
   container.innerHTML = html;
 }
 
