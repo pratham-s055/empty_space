@@ -1,8 +1,4 @@
 
-
-
-
-
 var details = document.getElementById('detail-container');
 var container = document.getElementById('card-col');
 var select_month = document.getElementById('select');
@@ -18,6 +14,7 @@ var firstDay = `${year}-0${month}-01`
 var lastDay = `${year}-0${month}-${day}`
 var last_day
 
+console.log(firstDay)
 
 
 
@@ -69,29 +66,14 @@ async function asyncCall(firstDay) {
 
 generateHTML = () => {
   let html = "";
-  data.map(result => {
-
-
-    if(result.media_type == "image"){
-      html += `
-    <div class="card m-5">
-      <img class="card-img-top img-selectior" src="${result.hdurl}" alt="Card image cap">
-        <div class="card-body">
-          <input type="hidden" name="" value = "${data}">
-          <h5 class="card-title">${result.title}</h5>
-          <p class="card-text"> <data value="${data}">${result.explanation} </data></p>
-          <p class="card-text"><small class="text-muted"> ${result.date} </small></p>
-        </div>
-  </div>
-    
-    `
-    }else{
-      html += `
+  console.log(data)
+  if(data.code != "400"){
+    data.map(result => {
+      if(result.media_type == "image"){
+        html += `
       <div class="card m-5">
-      <iframe class="card-image-top"
-      src="${result.url}">
-      </iframe>
-      <div class="card-body">
+        <img class="card-img-top img-selectior" src="${result.hdurl}" alt="Card image cap">
+          <div class="card-body">
             <input type="hidden" name="" value = "${data}">
             <h5 class="card-title">${result.title}</h5>
             <p class="card-text"> <data value="${data}">${result.explanation} </data></p>
@@ -100,9 +82,32 @@ generateHTML = () => {
     </div>
       
       `
-    }
+      }else{
+        html += `
+        <div class="card m-5">
+        <iframe class="card-image-top"
+        src="${result.url}">
+        </iframe>
+        <div class="card-body">
+              <input type="hidden" name="" value = "${data}">
+              <h5 class="card-title">${result.title}</h5>
+              <p class="card-text"> <data value="${data}">${result.explanation} </data></p>
+              <p class="card-text"><small class="text-muted"> ${result.date} </small></p>
+            </div>
+      </div>
+        
+        `
+      }
+      
+    })
+  }else{
+    html += `
+
+      <h1> No Data For This Month </h1>
     
-  })
+    `
+  }
+  
 
 
 
