@@ -1,0 +1,35 @@
+body {
+  background: #232321;
+}
+
+h1 {
+  color: #fff;
+  padding: 10px 0;
+}
+
+.card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border: none;
+  margin-bottom: 4px;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.card a {
+  color: initial;
+}
+
+.card a:hover {
+  text-decoration: initial;
+}
+
+.card .text-muted i {
+  margin: 0 10px;
+}
+/*# sourceMappingURL=style.css.map */
