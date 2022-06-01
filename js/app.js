@@ -16,6 +16,12 @@ var last_day
 
 console.log(firstDay)
 
+var loader = `
+<div class="loader-container mt-5" style="margin:0 auto">
+<div class="planet"></div>
+</div>
+`
+
 
 
 select_month.addEventListener('input', (e) => {
@@ -47,6 +53,8 @@ var image_selectior
 
 
 async function asyncCall(firstDay) {
+  container.innerHTML = ""
+  container.innerHTML = loader
   if(lastDay){
     var url = `https://api.nasa.gov/planetary/apod?api_key=${key}&start_date=${firstDay}&end_date=${lastDay}`
   }else{
@@ -72,7 +80,7 @@ generateHTML = () => {
       if(result.media_type == "image"){
         html += `
       <div class="card m-5">
-        <img class="card-img-top img-selectior" src="${result.hdurl}" alt="Card image cap">
+        <img class="card-img-top img-selectior" src="${result.url}" alt="Card image cap">
           <div class="card-body">
             <input type="hidden" name="" value = "${data}">
             <h5 class="card-title">${result.title}</h5>
