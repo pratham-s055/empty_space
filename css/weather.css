@@ -1,0 +1,120 @@
+.weather-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.6s ease forwards;
+}
+
+.weather-card:nth-child(1) { animation-delay: 0.1s; }
+.weather-card:nth-child(2) { animation-delay: 0.2s; }
+.weather-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.card-img-top {
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+
+.card-img-container {
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+}
+
+.card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.weather-img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    padding: 5px;
+    width: 300px;
+    transition: width 0.5s ease;
+    overflow: hidden;
+}
+
+.dark-mode .search-bar {
+    background-color: #333;
+}
+
+.input-style {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    flex: 1;
+    font-size: 16px;
+    background: transparent;
+    transition: opacity 0.3s ease;
+}
+
+.dark-mode .input-style {
+    background: #444;
+    color: white;
+}
+.input-style:focus {
+    outline: none;
+    box-shadow: none;
+}
+/* Button */
+.btn-primary {
+    background-color: #0a0a1a;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode .btn-primary {
+    background-color: #e1e1e1;
+}
+
+.btn-primary img {
+    width: 18px;
+    height: 18px;
+}
+
+/* Collapsed state */
+.search-bar.collapsed {
+    width: 60px; /* Only shows the search icon */
+}
+
+.search-bar.collapsed .input-style {
+    opacity: 0;
+    pointer-events: none;
+}
